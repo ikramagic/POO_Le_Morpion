@@ -31,14 +31,15 @@ class Board
         [0, 4, 8], [2, 4, 6]            
       ]
       
-      winning_combinations.each do |combo| #on va boucler sur chacune des sous-boites de winning_comb qui deviennent combo
-        if combo.all? { |position| @board[position] == player.symbol }
+      winning_combinations.each do |you_win| #on va boucler sur chacune des sous-boites de winning_comb qui deviennent combo
+        if you_win.all? { |position| @board[position] == player.symbol }
         #{} commence par vérifier les sous-cases = elle contiennent le symbole ?
         #all? permets scanner si TOUTES les cases correspondent bien à ce qui a été vérifié dans {}
-          puts "Bravo, tu as gagné!"
+          puts "Bravo #{player.name}, tu as gagné!"
           return true
         end
-        if @board.all? { |board_box| board_box != nil && board_box != true }
+        if @board.all? { |board_box| board_box != nil && board_box != true } 
+        #boites pas vides et remplissage effectué ? vérifie toutes les cases de @board et si c'est le cas, affiche moi le message ci-dessous
         puts "Egalité, personne ne gagne."
           return false
         end
