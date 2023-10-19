@@ -34,17 +34,16 @@ class Game
         continue = gets.chomp
         if continue == "oui"
         puts "C'est reparti!"
-        current_board = Board.new
+        @current_board = Board.new #vide le tableau en en créant un nouveau avant de relancer turn
         turn
-        elsif continue =="non"
+        elsif continue == "non"
         puts "Rageux. Allez, bye."
         end
     end
 
     def game_end
-        # TO DO : permet l'affichage de fin de partie quand un vainqueur est détecté ou si il y a match nul
         if @current_board.victory?(player2) == true|| @current_board.victory?(player1) == true
-            puts "Fin de la partie."
+            puts "Fin de partie. Beckett."
         end
       end
 end
