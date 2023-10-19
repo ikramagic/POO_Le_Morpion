@@ -20,7 +20,11 @@ class Board
         puts "#{player.name}: où veux-tu aller ?"
         puts ">>>" 
         choice = gets.chomp.to_i
+        if choice > 8 
+          puts "Nope, les cases vont de 0 à 8."
+        else
         @board[choice] = player.symbol
+        end
     end
 
     def victory?(player)
@@ -37,13 +41,23 @@ class Board
         #all? permets scanner si TOUTES les cases correspondent bien à ce qui a été vérifié dans {}
           puts "Bravo #{player.name}, tu as gagné!"
           return true
+          break
         end
         if @board.all? { |board_box| board_box != nil && board_box != true } 
         #boites pas vides et remplissage effectué ? vérifie toutes les cases de @board et si c'est le cas, affiche moi le message ci-dessous
         puts "Egalité, personne ne gagne."
+        break
           return false
         end
         return false
       end
+    end
+
+    def show_board
+      puts " 0 | 1 | 2 "
+      puts "------------"
+      puts " 3 | 4 | 5 "
+      puts "------------"
+      puts " 6 | 7 | 8 "
     end
 end

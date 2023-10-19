@@ -9,7 +9,7 @@ class Player
         puts "Choisis un nom :"
         name = gets.chomp
         @name = name
-        puts "Choisis un symbole (x ou o) :"
+        puts "Choisis un symbole (x / o) :"
         symbol = gets.chomp
         @symbol =  symbol
         @@all_players << self
